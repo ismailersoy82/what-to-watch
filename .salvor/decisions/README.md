@@ -23,3 +23,4 @@ touches an adjacent component that quietly depends on this one.
 ## Index
 | Date | ID | Decision | Subject | Invariant (one-line) | Touches |
 |------|----|----------|---------|----------------------|---------|
+| 2026-11-23 | DEC:backup-merge-newest-wins | [2026-11-23-backup-merge-newest-wins.md](2026-11-23-backup-merge-newest-wins.md) | store, backup, sync | Import merges by id, newer updatedAt wins, never deletes | root |
