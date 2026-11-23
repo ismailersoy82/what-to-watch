@@ -30,3 +30,10 @@ Project intent: personal film + series watchlist. Data in the browser (localStor
   sibling repo — but that knowledge came from this agent's session memory, not from Salvor (brains are per-repo; a
   fresh agent here would not know it). Cross-repo learning is outside Salvor's model today.
 - Brain Reconcile (RULES §0.6/§10.2, pre-PR): origin/dev = b07d4d3 = merge base → no incoming brain changes; nothing to reconcile.
+
+## 2026-11-23 — Integration: PR #1 → dev
+- Operator reviewed and merged PR #1 into dev (merge 752dde8) and deleted the branch. Integration bump per RULES §3:
+  ROOT:pending → ROOT:02, project version 0.2.0 (JSON header, Build IDs line, history row, L1 header).
+- Field-trial note: Strict flow worked end to end with a human merge. Friction: `gh pr create` is blocked (GraphQL)
+  in this environment; the REST `POST /pulls` route works. The integration bump is a separate commit on dev after the
+  human merge, because the merge happens in GitHub's UI, not here.
