@@ -1,13 +1,15 @@
 # root (src/) — WhatToWatch browser app
 
-Static HTML/CSS/vanilla JavaScript (ES modules), no build step, no framework. Entry point `src/index.html` (planned).
+Static HTML/CSS/vanilla JavaScript (ES modules), no build step, no framework. Entry point `src/index.html` (root `index.html` redirects there).
 External systems: TVmaze API (series, no auth), TMDB API (films, user-supplied key). Storage: localStorage.
 
 ## Key Files
-- `index.html` — app shell (planned)
-- `store.js` — list model, localStorage persistence, JSON export/import (planned)
-- `sources/` — TVmaze and TMDB adapters returning one normalised item shape (planned)
-- `tests/` — Node `--test` unit tests for store and adapters with recorded fixtures (planned)
+- `index.html` / `app.js` / `style.css` — TR UI: search modes (Dizi ara / Oyuncu ara / Elle ekle), list with
+  status/rating/notes, filters, backup buttons, TVmaze credit
+- `config.js` — APP_NAME, STORAGE_KEY, EXPORT_FORMAT, STATUSES (single source)
+- `store.js` — pure list model + localStorage + backup merge (`DEC:backup-merge-newest-wins`)
+- `sources/tvmaze.js` — series search, people search, person → series (`DL:tvmaze-terms`)
+- `tests/` — `node --test src/tests/*.test.mjs`; `fixtures/tvmaze.mjs` hand-written in TVmaze's response shape
 
 ## Architecture Notes
 - Never commit an API key, token or personal list data; the TMDB key lives only in the user's localStorage.

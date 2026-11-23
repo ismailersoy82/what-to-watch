@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WhatToWatch</title>
+  <meta name="description" content="Kişisel film ve dizi izleme listesi">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%23b4233c%27/%3E%3Cpath d=%27M12 9l11 7-11 7z%27 fill=%27white%27/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="top">
+    <h1 id="appName">WhatToWatch</h1>
+    <p class="sub">Film ve dizi izleme listen · <span id="build"></span></p>
+  </header>
+
+  <main>
+    <section class="card">
+      <div class="seg" role="tablist">
+        <button type="button" role="tab" data-mode="series" aria-selected="true">Dizi ara</button>
+        <button type="button" role="tab" data-mode="person" aria-selected="false">Oyuncu ara</button>
+        <button type="button" role="tab" data-mode="manual" aria-selected="false">Elle ekle</button>
+      </div>
+      <form id="searchForm" class="row">
+        <input id="q" type="search" placeholder="Dizi adı" autocomplete="off" aria-label="Arama">
+        <button type="submit">Ara</button>
+      </form>
+      <form id="manualForm" class="manual" hidden>
+        <input id="mTitle" placeholder="Ad" required aria-label="Ad">
+        <input id="mYear" type="number" min="1880" max="2100" placeholder="Yıl" aria-label="Yıl">
+        <select id="mKind" aria-label="Tür"><option value="film">Film</option><option value="series">Dizi</option></select>
+        <button type="submit">Ekle</button>
+      </form>
+      <p class="hint" id="filmHint">Film araması ve oyuncunun filmleri, TMDB anahtarı eklenince gelecek. Şimdilik filmleri "Elle ekle" ile ekleyebilirsin.</p>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <ul id="results" class="results"></ul>
+    </section>
+
+    <section class="card">
+      <div class="list-head">
+        <h2>Listem <span id="count" class="muted"></span></h2>
+        <div class="tools">
+          <button type="button" id="exportBtn" class="ghost">Yedekle</button>
+          <label class="ghost file">Yedekten yükle<input id="importFile" type="file" accept="application/json,.json"></label>
+        </div>
+      </div>
+      <div class="filters">
+        <select id="fStatus" aria-label="Durum">
+          <option value="all">Tümü</option><option value="want">İzlenecek</option>
+          <option value="watching">İzleniyor</option><option value="done">İzlendi</option>
+        </select>
+        <select id="fKind" aria-label="Tür"><option value="all">Film + dizi</option><option value="series">Dizi</option><option value="film">Film</option></select>
+        <input id="fText" type="search" placeholder="Listemde ara" aria-label="Listemde ara">
+      </div>
+      <ul id="list" class="list"></ul>
+      <p id="empty" class="muted" hidden>Listen boş. Yukarıdan bir dizi ara ya da elle ekle.</p>
+    </section>
+
+    <footer class="foot">
+      Dizi bilgileri <a href="https://www.tvmaze.com" rel="noopener">TVmaze</a>'den (CC BY-SA). Listen yalnızca bu tarayıcıda saklanır; başka cihaza taşımak için "Yedekle" kullan.
+    </footer>
+  </main>
+</body>
+</html>

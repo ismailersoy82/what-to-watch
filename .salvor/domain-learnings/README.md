@@ -24,3 +24,4 @@ Categories (extend as needed):
 ## Chronological index
 | Date | ID | File | Category | Subject | One-line takeaway |
 |------|----|------|----------|---------|-------------------|
+| 2026-11-23 | DL:tvmaze-terms | [2026-11-23-PROBE-tvmaze-terms.md](2026-11-23-PROBE-tvmaze-terms.md) | PROBE | tvmaze, licensing, rate-limit | No key, CORS, ~20/10s, CC BY-SA → credit + link |
